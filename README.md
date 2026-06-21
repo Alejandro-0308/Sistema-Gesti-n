@@ -34,6 +34,10 @@ o desde consola:
 
 java -jar SistemaInventarioMedico.jar
 
+//Contraseña
+
+Con su licencia del sistema de gestion de inventario medico tambien se incluye la contraseña de control maestro para su primer inicio: 8833
+
 //Autor
 
 Alejandro Terzano
