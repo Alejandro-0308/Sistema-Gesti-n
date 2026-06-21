@@ -13,7 +13,11 @@ Persistencia CSV
 
 Java 17 o superior instalado.
 
-Ejecutar:
+//Inicializacion
+
+Dentro de la carpeta "dist" se encontrara el ejecutable .jar con el sistema.
+
+//Ejecutar:
 
 SistemaInventarioMedico.jar
 
