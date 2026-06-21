@@ -1,0 +1,246 @@
+// Enum Rol //
+- EMPLEADO
+- ADMINISTRADOR
+
+// Enum Sector //
+- ENFERMERIA
+- ADMINISTRACION
+- LABORATORIO
+- LIMPIEZA
+- FARMACIA
+- GENERAL
+
+// Enum TipoMovimiento //
+- ENTRADA
+- SALIDA
+
+// Enum TiposAdministrativos //
+- PAPELERIA
+- ESCRITORIO
+- TECNOLOGIA
+- ARCHIVADOR
+
+// Interface Reportable //
++ getReporte() : String
+
+// Inventario //
+- listaInsumos : ArrayList<Insumo>
+- listaMovimientos : ArrayList<Movimiento>
+- listaProveedores : ArrayList<Proveedor>
+- listaEmpleados : ArrayList<Empleado>
+- empleadoLogueado : Empleado
+
+- proximoCodigoInsumo : int
+- proximoIdProveedor : int
+- proximoLegajo : int
+- proximoIdMovimiento : int
+-----------------------------------------
++ Inventario()
+
++ agregarProveedor(proveedor : Proveedor) : void
++ agregarInsumo(insumo : Insumo) : void
++ agregarEmpleado(empleado : Empleado) : void
++ agregarMovimiento(movimiento : Movimiento) : void
+
++ agregarProveedor(proveedor : Proveedor) : void
++ agregarInsumo(insumo : Insumo) : void
++ agregarEmpleado(empleado : Empleado) : void
++ agregarMovimiento(movimiento : Movimiento) : void
+
++ registrarEntrada(nombreInsumo : String, cantidad : int, observacion : String) : boolean
+
++ registrarSalida(nombreInsumo : String, cantidad : int, observacion : String) : boolean
+
++ desactivarInsumo(codigo : int) : boolean
++ desactivarProveedor(empresa : String) : boolean
++ desactivarEmpleado(legajo : int) : boolean
+
++ reactivarProveedor(idProveedor : int) : boolean
++ reactivarInsumo(codigo : int) : boolean
++ reactivarEmpleado(legajo : int) : boolean
+
++ buscarProveedorPorId(id : int) : Proveedor
++ buscarEmpleadoPorLegajo(legajo : int) : Empleado
++ buscarInsumoPorCodigo(codigo : int) : Insumo
++ buscarInsumoPorNombre(nombre : String) : Insumo
++ buscarProveedorPorNombre(nombre : String) : Proveedor
++ buscarMovimientoPorId(id : int) : Movimiento
+
++ listarInsumosActivos() : ArrayList<Insumo>
++ listarInsumosInactivos() : ArrayList<Insumo>
++ listarInsumosBajoMinimo() : ArrayList<Insumo>
+
++ listarProveedoresActivos() : ArrayList<Proveedor>
++ listarProveedoresInactivos() : ArrayList<Proveedor>
+
++ listarEmpleadosActivos() : ArrayList<Empleado>
++ listarEmpleadosInactivos() : ArrayList<Empleado>
+
++ login(legajo : int, contrasena : String) : boolean
++ logout() : void
++ haySesionesActivas() : boolean
+
++ recalcularIds() : void
+
++ generarReporteEmpleados() : String
++ generarReporteProveedores() : String
++ generarReporteInsumos() : String
++ generarReporteMovimientos() : String
+
++ getHistorialMovimientos() : ArrayList<Movimiento>
++ getStockTotal() : int
++ getTotalEntradas() : int
++ getTotalSalidas() : int
++ getTotalMovimientos() : int
+
++ getListaInsumos() : ArrayList<Insumo>
++ getListaMovimientos() : ArrayList<Movimiento>
++ getListaProveedores() : ArrayList<Proveedor>
++ getListaEmpleados() : ArrayList<Empleado>
++ getEmpleadoLogueado() : Empleado
+
+
+ {abstract}
+// Insumo //
+
+- codigo : int
+- nombre : String
+- descripcion : String
+- stockActual : int
+- stockMinimo : int
+- proveedor : Proveedor
+- activo : boolean
+
+--------------------------------------
+
++ aumentarStock(cantidad : int) : void
++ restarStock(cantidad : int) : void
+
++ hayStock(cantidad : int) : boolean
++ necesitaReposicion() : boolean
+
++ getTipo() : String
++ getReporte() : String
++ toCSV() : String
+
++ getters/setters
+
+
+// InsumoAdministrativo //
+
+- categoria : TiposAdministrativos
+
+---------------------------------------
+
++ getTipo() : String
++ getCategoria() : TiposAdministrativos
++ setCategoria() : void
+
++ getReporte() : String
++ toCSV() : String
+
+
+// InsumoLimpieza //
+
+- quimico : boolean
+
+-----------------------------------------
+
++ requiereManipulacionEspecial() : boolean
+
++ isQuimico() : boolean
++ setQuimico(...) : void
+
++ getTipo() : String
++ getReporte() : String
++ toCSV() : String
+
+
+// InsumoMedico //
+
+- fechaVencimiento : Date
+- requiereFrio : boolean
+
+-------------------------------------------
+
++ estaVencido() : boolean
+
++ getFechaVencimiento() : Date
++ setFechaVencimiento() : void
+
++ isRequiereFrio() : boolean
++ setRequiereFrio() : void
+
++ getTipo() : String
++ getReporte() : String
++ toCSV() : String
+
+// Movimiento //
+
+- idMovimiento : int
+- fechaMovimiento : Date
+- tipo : TipoMovimiento
+- cantidad : int
+- observacion : String
+- insumo : Insumo
+- empleado : Empleado
+
+---------------------------------------
+
++ getReporte() : String
++ toCSV() : String
+
++ getters/setters
+
+
+// Empleado //
+
+- legajo : int
+- nombre : String
+- apellido : String
+- sector : Sector
+- rol : Rol
+- contrasena : String
+- activo : boolean
+
+-----------------------------------
+
++ getReporte() : String
++ toCSV() : String
+
++ getters/setters
+
+
+// Proveedor //
+
+- idProveedor : int
+- empresa : String
+- telefono : String
+- email : String
+- direccion : String
+- activo : boolean
+
+-----------------------------------------
+
++ getReporte() : String
++ toCSV() : String
+
++ getters/setters
+
+
+// PersistenciaCSV //
+
++ guardarInsumos(inventario : Inventario) : void
++ cargarInsumos(inventario : Inventario) : void
+
++ guardarProveedores(inventario : Inventario) : void
++ cargarProveedores(inventario : Inventario) : void
+
++ guardarEmpleados(inventario : Inventario) : void
++ cargarEmpleados(inventario : Inventario) : void
+
++ guardarMovimientos(inventario : Inventario) : void
++ cargarMovimientos(inventario : Inventario) : void
+
++ guardarTodo(inventario : Inventario) : void
++ cargarTodo(inventario : Inventario) : void
