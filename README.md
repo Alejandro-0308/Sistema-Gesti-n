@@ -17,6 +17,14 @@ Java 17 o superior instalado.
 
 Dentro de la carpeta "dist" se encontrara el ejecutable .jar con el sistema.
 
+//Informe 
+
+Este se encuentra en el propio repositorio con el nombre "Informe Proyecto Sistema de gestion - Terzano Alejandro"
+
+//UML
+
+Este se encuentra como un png y un draw.io en el repositorio con el nombre de "UML - SISTEMA DE GESTION CENTRO MEDICO"
+
 //Ejecutar:
 
 SistemaInventarioMedico.jar
